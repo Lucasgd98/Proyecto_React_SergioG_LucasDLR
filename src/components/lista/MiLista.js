@@ -1,7 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 
-class MiLista extends React.Component {
-    state={incidencias:[
+function MiLista(){
+    const [incidencias, setIncidencias] = useState(
+        [
         {
         id_incidencias: 1,
         id_usuario: "lucasgd98",
@@ -52,20 +53,22 @@ class MiLista extends React.Component {
         fecha_registro: "2025-10-20",
         estado: "Abierto",
         ubicacion: "B205"
-    }]
-    };
+    },
 
-    render(){
+
+    ]);
+
+    
     return(
         <div ClassName='lista'>
             <ul>
                 {
-                    this.state.incidencias.map((i)=> (
+                    incidencias.map((i)=> (
                         <li>
                             
                             <strong>ID incidencia:</strong> {i.id_incidencias}<br></br>
                             <strong>Titulo: </strong>{i.titulo}<br></br>
-                           <strong>Descripcion: </strong>{i.descripcion}<br></br>
+                            <strong>Descripcion: </strong>{i.descripcion}<br></br>
                             <strong>Categoria: </strong>{i.categoria}<br></br>
                             <strong>Nivel de urgencia: </strong>{i.nivel_urgencia}<br></br>
                             <strong>Fecha de registro: </strong>{i.fecha_registro}<br></br>
@@ -81,5 +84,5 @@ class MiLista extends React.Component {
         </div>
     );
 }
-}
+
 export default MiLista;
